@@ -10298,6 +10298,8 @@ in modules // {
 
     buildInputs = with self; [ cython ];
 
+    disabled = isPyPy;
+
     meta = {
       description = "Line-by-line profiler";
       homepage = https://github.com/rkern/line_profiler;
