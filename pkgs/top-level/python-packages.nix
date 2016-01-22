@@ -4229,9 +4229,7 @@ in modules // {
 
     buildInputs = [ pkgs.glibcLocales ];
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     meta = {
       description = "Powerful extensions to the standard datetime module";
@@ -5482,9 +5480,7 @@ in modules // {
 
     buildInputs = [ pkgs.glibcLocales ];
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     # TODO: AppIndicator
     propagatedBuildInputs = with self; [ pkgs.gobjectIntrospection pygobject3 pkgs.makeWrapper pkgs.gtk3 ];
@@ -8216,9 +8212,7 @@ in modules // {
 
     buildInputs = [ pkgs.glibcLocales ];
 
-    preConfigure = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     propagatedBuildInputs = with self; [ six pytz ];
 
@@ -9300,9 +9294,7 @@ in modules // {
       sha256 = "1d2za9crkgzildx610w3zif2i8phcqhh6n8nzg3yvy2mg0s18mkl";
     };
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     buildInputs = with self; [ six pkgs.glibcLocales ];
 
@@ -10829,8 +10821,9 @@ in modules // {
     # sed calls will be unecessary in v3.1.11+
     preConfigure = ''
       sed -i 's/==/>=/' setup.py
-      export LC_ALL="en_US.UTF-8"
     '';
+
+    LC_ALL="en_US.UTF-8";
 
     meta = {
       description = ''
@@ -10938,9 +10931,7 @@ in modules // {
       sed -i 's/requests.*"/requests"/' setup.py
     '';
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     postInstall = ''
       mkdir -p $out/lib
@@ -11197,10 +11188,7 @@ in modules // {
 
     buildInputs = [ pkgs.glibcLocales self.mock ];
 
-    # some files in tests dir include unicode names
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     propagatedBuildInputs = with self; [ argparse jinja2 six modules.readline ] ++
                             (optionals isPy26 [ importlib ordereddict ]);
@@ -11282,9 +11270,7 @@ in modules // {
 
     buildInputs = [ pkgs.glibcLocales ];
 
-    preCheck = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     meta = {
       homepage = http://alastair/python-musicbrainz-ngs;
@@ -14194,9 +14180,7 @@ in modules // {
       sed -i -e "s|'git'|'${pkgs.git}/bin/git'|" pelican/tests/test_pelican.py
     '';
 
-    preConfigure = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     meta = {
       description = "A tool to generate a static blog from reStructuredText or Markdown input files";
@@ -18101,8 +18085,10 @@ in modules // {
     buildInputs = with self; [ nose pillow pkgs.gfortran pkgs.glibcLocales ];
     propagatedBuildInputs = with self; [ numpy scipy pkgs.openblas ];
 
+    LC_ALL="en_US.UTF-8";
+
     checkPhase = ''
-      LC_ALL="en_US.UTF-8" HOME=$TMPDIR OMP_NUM_THREADS=1 nosetests $out/${python.sitePackages}/sklearn/
+      HOME=$TMPDIR OMP_NUM_THREADS=1 nosetests $out/${python.sitePackages}/sklearn/
     '';
 
     meta = {
@@ -18657,9 +18643,7 @@ in modules // {
     };
 
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     checkPhase = ''
       ${python.interpreter} test_clint.py
@@ -19398,9 +19382,7 @@ in modules // {
     name = "sure-${version}";
     version = "1.2.24";
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     disabled = isPyPy;
 
@@ -19982,9 +19964,7 @@ in modules // {
     buildInputs = with self; [ nose coverage pkgs.glibcLocales flake8 ];
     propagatedBuildInputs = with self; [ matplotlib pandas ];
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     doCheck = false; # Many transient failures in performance tests and due to use of sleep
 
@@ -22210,9 +22190,7 @@ in modules // {
       sha256 = "12hhblqy1ajvidm38im4171x4arg83pfmziyn53nizp29p3m14gi";
     };
 
-    preBuild = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+    LC_ALL="en_US.UTF-8";
 
     buildInputs = [ pkgs.glibcLocales ];
 
@@ -23765,9 +23743,9 @@ in modules // {
     };
     disabled = isPyPy;
     buildInputs = [ pkgs.glibcLocales ];
-    preConfigure = ''
-      export LC_ALL="en_US.UTF-8"
-    '';
+
+    LC_ALL="en_US.UTF-8";
+
     meta = {
       description = "Copy your docs directly to the gh-pages branch.";
       homepage = "http://github.com/davisp/ghp-import";
