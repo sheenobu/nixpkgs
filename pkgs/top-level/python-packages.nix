@@ -9758,6 +9758,7 @@ in modules // {
       description = "Vestigial utilities from IPython";
       homepage = http://ipython.org/;
       license = licenses.bsd3;
+      maintainers = with maintainers; [ fridh ];
     };
   };
 
